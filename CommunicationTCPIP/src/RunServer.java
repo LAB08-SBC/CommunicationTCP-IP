@@ -28,12 +28,18 @@ public class RunServer{
   		while(true){
   			if((receiveMessage = receiveRead.readLine()) != null){
   				System.out.println("Client: " + receiveMessage);
-  				if(receiveMessage == "mover")
-  					Jason.move(3,512);
-  				else if(receiveMessage == "recuar")
+  				if(receiveMessage.equals("mover")){
+  					int pos = 512;
+  					int motor = 3;
+  					Jason.move(motor,pos);
+  					pwrite.println("Movi motor " + motor + " para posicao " + pos); 
+  	  				pwrite.flush(); 
+  				}
+  				else if(receiveMessage.equals("recuar"))
   					Jason.move(3,210);
   				sendMessage = keyRead.readLine();
-  				pwrite.println(sendMessage); pwrite.flush(); 
+  				pwrite.println(sendMessage); 
+  				pwrite.flush(); 
   			}
   		}
     	
