@@ -1,0 +1,1 @@
+javac -cp ".; pi4j-core.jar; pi4j-device.jar; pi4j-gpio-extension.jar; pi4j-service.jar" *.java
